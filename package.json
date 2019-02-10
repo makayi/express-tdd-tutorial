@@ -1,0 +1,58 @@
+{
+  "name": "movie_server",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "babel src -d dist --source-maps",
+    "serve": "NODE_ENV=production node dist/index.js",
+    "start": "NODE_ENV=development babel-node src/index.js",
+    "dev": "DEBUG=server:debug NODE_ENV=development nodemon src/index.js --exec babel-node",
+    "test": "DEBUG=server:debug NODE_ENV=test mocha --require babel-core/register --reporter spec --exit   tests/ --exec babel-node",
+    "test:watch": "DEBUG=server:debug NODE_ENV=development mocha  --require babel-core/register --watch --reporter  spec   tests/ --exec babel-node",
+    "eslint": "eslint src/**/*.js --ignore-pattern \"node_modules/\""
+  },
+  "main": "index.js",
+  "author": "mbuyu",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-node8": "^1.2.0",
+    "chai": "^4.2.0",
+    "config": "^3.0.1",
+    "debug": "^4.1.1",
+    "mocha": "^5.2.0",
+    "supertest": "^3.4.2"
+  },
+  "babel": {
+    "presets": [
+      "node8"
+    ]
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "eslintConfig": {
+    "plugins": [
+      "node"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:node/recommended"
+    ],
+    "rules": {
+      "node/no-unsupported-features/es-syntax": 0,
+      "node/no-unsupported-features/es-builtins": 0
+    },
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2018
+    }
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.11"
+  }
+}
