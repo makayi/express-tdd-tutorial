@@ -9,9 +9,9 @@
  1. yarn run test or npm run test
 
  ## Building For Production
-  1. yarn run build or npm run serve
+  1. yarn run build or npm run building
 
-  ## Running production
+  ## Running In Production
   1. yarn run server or npm run serve
 
 
